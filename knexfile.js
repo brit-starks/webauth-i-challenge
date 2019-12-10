@@ -8,12 +8,17 @@ module.exports = {
     connection: {
       filename: './database/users.db3'
     },
-      migration: {
-        directory: './database/migrations',
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run('PRAGMA foreign_keys = ON', done);
       },
-      seeds: {
-        directory: './database/seeds',
-      }
-    }
-  };
+    },
+    migration: {
+      directory: './database/migrations',
+    },
+    seeds: {
+      directory: './database/seeds',
+    },
+  },
+};
 
