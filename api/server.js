@@ -1,17 +1,14 @@
 const express = require('express');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 
-const userRouter = require('../users/users-router');
+const apiRouter = require('../api/api-router');
 
 const server = express();
 
-// server.use(helmet());
+server.use(helmet());
 
 server.use(express.json());
-server.use('/api', userRouter);
 
-server.get('/', (req, res) => {
-  res.json({api: "WebAuth-I-Challenge"});
-})
+server.use('/api', apiRouter);
 
 module.exports = server;
