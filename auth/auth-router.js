@@ -46,6 +46,10 @@ router.post('/login', (req, res) => {
         message: 'Opps, something happened on our end...'
       });
     });
-})
+});
+
+// router.get('/logout', (req, res) => {
+
+// })
 
 module.exports = router;
