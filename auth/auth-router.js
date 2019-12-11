@@ -1,4 +1,5 @@
 
+// api/auth
 const express = require('express');
 const bcrypt = require('bcryptjs');
 
@@ -10,8 +11,8 @@ const router = express.Router();
 router.post('/register', (req, res) => {
   let user = req.body;
 
-  // const hash = bcrypt.hashSync(user.password, 10);
-  // user.password = hash;
+  const hash = bcrypt.hashSync(user.password, 10);
+  user.password = hash;
 
   User.insert(user)
     .then(saved => {
@@ -21,3 +22,5 @@ router.post('/register', (req, res) => {
       res.status(500).json(err);
     });
 });
+
+module.exports = router;

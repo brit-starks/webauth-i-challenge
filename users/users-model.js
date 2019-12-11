@@ -31,11 +31,3 @@ function findBy(filter) {
     .select('id', 'username', 'password')
     .where(filter);
 }
-
-// function add(user) {
-//   return db("users")
-//     .insert(user, "id")
-//     .then(([id]) => {
-//       return findById(id);
-//     });
-// }
