@@ -12,7 +12,7 @@ const sessionConfig = {
     httpOnly: true
   },
   resave: false,
-  saveOnInitialized: false
+  saveUninitialized: false,
 };
 
 module.exports = server => {
